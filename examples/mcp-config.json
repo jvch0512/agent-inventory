@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "filesystem": { "command": "npx", "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/dev"] },
+    "github": { "command": "npx", "args": ["-y", "@modelcontextprotocol/server-github@1.4.2"], "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_demo1234567890" } },
+    "postgres": { "command": "docker", "args": ["run", "-i", "--rm", "mcp/postgres", "postgresql://readonly@db.internal/app"] },
+    "remote-crm": { "url": "http://crm.partner.example/mcp?token=demo" },
+    "shell": { "command": "uvx", "args": ["mcp-shell-runner"] },
+    "docs": { "command": "node", "args": ["./tools/docs-server.js"], "env": { "API_KEY": "${DOCS_API_KEY}" } }
+  }
+}

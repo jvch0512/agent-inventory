@@ -1,0 +1,26 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npm test
+      - name: Sample outputs are up to date
+        run: |
+          node dist/src/cli.js inventory examples/inventory.json > /tmp/inv.md
+          diff /tmp/inv.md docs/sample-inventory.md
+          node dist/src/cli.js mcp examples/mcp-config.json > /tmp/mcp.md
+          diff /tmp/mcp.md docs/sample-mcp.md
+          test "$(node dist/src/cli.js inventory examples/inventory.json --fail-on-prohibited >/dev/null; echo $?)" = "1"
+          test "$(node dist/src/cli.js mcp examples/mcp-config.json --fail-on high >/dev/null; echo $?)" = "1"

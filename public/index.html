@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<title>agent-inventory</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>agent-inventory</h1>
+    <p class="sub">Inventory of AI systems and agents with EU AI Act classification, an agent risk score and a static review of MCP configurations. Runs in this tab, nothing is uploaded.</p>
+  </div>
+</header>
+<nav id="tabs" role="tablist">
+  <button type="button" role="tab" data-tab="inv" class="on">AI Act inventory</button>
+  <button type="button" role="tab" data-tab="mcp">MCP configuration</button>
+</nav>
+<main>
+  <section id="p-inv" class="tab">
+    <div class="panel">
+      <div class="row"><h2>Inventory JSON</h2><button type="button" id="inv-sample">Load sample</button></div>
+      <textarea id="inv-text" rows="10" spellcheck="false"></textarea>
+      <p class="hint">Fields per system: owner, role (provider, deployer, both), areas (Annex III), practices (Art. 5), usesGpai, interactsWithPeople, generatesContent, deepfake, profiling, autonomy, humanApproval, tools with access, data, logging. See the README.</p>
+    </div>
+    <div id="inv-out"></div>
+  </section>
+  <section id="p-mcp" class="tab" hidden>
+    <div class="panel">
+      <div class="row"><h2>MCP client configuration (claude_desktop_config.json, .mcp.json)</h2><button type="button" id="mcp-sample">Load sample</button></div>
+      <textarea id="mcp-text" rows="12" spellcheck="false"></textarea>
+      <p class="hint">Static review only: nothing is started or contacted. Secrets are never echoed back in full.</p>
+    </div>
+    <div id="mcp-out"></div>
+  </section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

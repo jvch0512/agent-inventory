@@ -1,0 +1,17 @@
+{
+  "name": "agent-inventory",
+  "version": "1.0.0",
+  "description": "AI system and agent inventory with EU AI Act classification (prohibited, high-risk, transparency), agentic risk scoring and an MCP configuration scanner that finds unpinned packages, inline secrets and over-broad servers. Zero runtime dependencies, nothing uploaded.",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "agent-inventory": "dist/src/cli.js" },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/src/server-main.js",
+    "test": "tsc && node --test dist/test/*.test.js"
+  },
+  "repository": "github:jvch0512/agent-inventory",
+  "keywords": ["ai-act", "ai-governance", "mcp", "ai-agents", "model-context-protocol", "inventory", "compliance", "security", "pre-sales", "typescript"],
+  "devDependencies": { "@types/node": "^22.0.0", "typescript": "^5.6.0" },
+  "engines": { "node": ">=20" }
+}

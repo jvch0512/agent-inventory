@@ -1,0 +1,12 @@
+{
+  "organisation": "Costa Pay Services S.L. (fictional fintech)",
+  "systems": [
+    { "id": "cv-screener", "name": "CV screening assistant", "owner": "HR", "role": "deployer", "purpose": "Ranks incoming applications for open roles", "areas": ["employment"], "usesGpai": true, "profiling": true, "autonomy": "supervised", "humanApproval": true, "data": ["personal"], "logging": true },
+    { "id": "credit-score", "name": "Consumer credit scoring model", "owner": "Risk", "role": "both", "purpose": "Scores loan applicants", "areas": ["essential-services"], "profiling": true, "autonomy": "supervised", "humanApproval": true, "data": ["personal"], "logging": true },
+    { "id": "mood-monitor", "name": "Call-centre mood monitor", "owner": "Operations", "role": "deployer", "purpose": "Detects agent frustration from voice", "practices": ["emotion-recognition-work-education"], "areas": ["employment"], "autonomy": "assistive", "data": ["personal"], "logging": false },
+    { "id": "support-bot", "name": "Customer support chatbot", "owner": "Support", "role": "deployer", "purpose": "Answers customer questions and opens tickets", "usesGpai": true, "interactsWithPeople": true, "generatesContent": true, "autonomy": "supervised", "humanApproval": true, "tools": [ { "name": "ticketing", "access": "write" }, { "name": "kb-search", "access": "read" } ], "data": ["personal"], "logging": true },
+    { "id": "devops-agent", "name": "DevOps remediation agent", "owner": "", "role": "deployer", "purpose": "Restarts services and rotates keys when alerts fire", "usesGpai": true, "autonomy": "autonomous", "humanApproval": false, "tools": [ { "name": "shell", "access": "exec" }, { "name": "cloud-api", "access": "write" }, { "name": "pager", "access": "network" } ], "data": ["confidential"], "logging": false },
+    { "id": "marketing-gen", "name": "Marketing copy and image generator", "owner": "Marketing", "role": "deployer", "purpose": "Drafts campaign text and illustrations", "usesGpai": true, "generatesContent": true, "deepfake": true, "autonomy": "assistive", "data": ["public"], "logging": true },
+    { "id": "spam-filter", "name": "Email spam filter", "owner": "IT", "role": "deployer", "purpose": "Filters inbound mail", "autonomy": "autonomous", "humanApproval": true, "data": ["confidential"], "logging": true }
+  ]
+}
